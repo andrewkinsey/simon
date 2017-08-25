@@ -78,17 +78,38 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-hS-5cx">
+                                <rect key="frame" x="156.5" y="561.5" width="62" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvQ-Y4-8Kf">
+                                <rect key="frame" x="146.5" y="471.5" width="82" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Sm-hh-C7F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="r8S-n8-VEI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5Yq-oW-pba"/>
                             <constraint firstItem="r8S-n8-VEI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jnl-Kf-hUq"/>
                             <constraint firstItem="xV8-cS-vBs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="V0g-1k-Pb8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a4T-hS-5cx" secondAttribute="bottom" constant="72" id="Xwe-SI-mu8"/>
+                            <constraint firstItem="nvQ-Y4-8Kf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aou-Do-HmO"/>
+                            <constraint firstItem="a4T-hS-5cx" firstAttribute="top" secondItem="nvQ-Y4-8Kf" secondAttribute="bottom" constant="30" id="bRg-FM-XvS"/>
                             <constraint firstItem="xV8-cS-vBs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j0J-pP-wKw"/>
+                            <constraint firstItem="a4T-hS-5cx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="swU-wK-sVF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="messageLabel" destination="a4T-hS-5cx" id="wSf-Zg-SUU"/>
                         <outletCollection property="colorDisplays" destination="zfX-Kl-acq" collectionClass="NSMutableArray" id="E1L-Uw-Zva"/>
                         <outletCollection property="colorDisplays" destination="shW-dY-5lo" collectionClass="NSMutableArray" id="yjv-Kf-g0j"/>
                         <outletCollection property="colorDisplays" destination="NMV-G5-Nmr" collectionClass="NSMutableArray" id="D2V-pH-JIY"/>

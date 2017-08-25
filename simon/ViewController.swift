@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController
 {
 
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet var colorDisplays: [UIView]!
+   
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -19,7 +21,9 @@ class ViewController: UIViewController
     }
 
     
-
+    @IBAction func onStartButtonPressed(_ sender: Any) {
+    }
+    
 
 }
 
