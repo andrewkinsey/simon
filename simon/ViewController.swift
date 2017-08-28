@@ -17,11 +17,19 @@ class ViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-       
+    }
+    
+    func flashColor(number: Int)
+    {
+        UIView.transition(with: colorDisplays[number], duration: 0.5, options: .transitionCrossDissolve, animations: {self.colorDisplays[number].alpha = 1.0}) { (true) in
+            UIView.transition(with: self.colorDisplays[number], duration: 0.5, options: .transitionCrossDissolve, animations: {self.colorDisplays[number].alpha = 0.5}, completion: nil)
+        }
     }
 
     
-    @IBAction func onStartButtonPressed(_ sender: Any) {
+    @IBAction func onStartButtonPressed(_ sender: Any)
+    {
+        flashColor(number: 0)
     }
     
 
