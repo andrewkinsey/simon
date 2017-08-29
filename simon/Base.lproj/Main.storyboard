@@ -96,6 +96,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="r8S-n8-VEI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5Yq-oW-pba"/>
                             <constraint firstItem="r8S-n8-VEI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jnl-Kf-hUq"/>
@@ -107,8 +108,12 @@
                             <constraint firstItem="a4T-hS-5cx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="swU-wK-sVF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Axz-iy-5ub" appends="YES" id="CvC-OD-vSr"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="colorsFrame" destination="r8S-n8-VEI" id="Net-9e-lxX"/>
                         <outlet property="messageLabel" destination="a4T-hS-5cx" id="wSf-Zg-SUU"/>
                         <outletCollection property="colorDisplays" destination="zfX-Kl-acq" collectionClass="NSMutableArray" id="E1L-Uw-Zva"/>
                         <outletCollection property="colorDisplays" destination="shW-dY-5lo" collectionClass="NSMutableArray" id="yjv-Kf-g0j"/>
@@ -117,6 +122,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Axz-iy-5ub">
+                    <connections>
+                        <action selector="onColorTapped:" destination="BYZ-38-t0r" id="XzG-FH-ysc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-79.200000000000003" y="170.46476761619192"/>
         </scene>

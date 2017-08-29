@@ -13,10 +13,20 @@ class ViewController: UIViewController
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet var colorDisplays: [UIView]!
-   
+    @IBOutlet weak var colorsFrame: UIView!
+    var timer = Timer()
+    var index = 0
+    var pattern = [Int]()
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        pattern.append(0)
+        pattern.append(1)
+        pattern.append(2)
+        pattern.append(3)
+
     }
     
     func flashColor(number: Int)
@@ -26,12 +36,42 @@ class ViewController: UIViewController
         }
     }
 
+    func displayPattern()
+    {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(ViewController.nextColor)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func nextColor()
+    {
+        if index < pattern.count
+        {
+            flashColor(number: pattern[index])
+            index += 1
+        }
+        else
+        {
+            timer.invalidate()
+            index = 0
+        }
+    }
+    
     
     @IBAction func onStartButtonPressed(_ sender: Any)
     {
-        flashColor(number: 0)
+        displayPattern()
     }
     
-
+    @IBAction func onColorTapped(_ sender: UITapGestureRecognizer)
+    {
+        for number in 0..<colorDisplays.count
+        {
+            if colorDisplays[number].frame.contains(sender.location(in: colorsFrame))
+            {
+                flashColor(number: number)
+            }
+        }
+    
+    }
+    
 }
 
