@@ -22,14 +22,12 @@ class ViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        pattern.append(0)
-        pattern.append(1)
-        pattern.append(2)
-        pattern.append(3)
+        
 
     }
-    func addToPattern() {
-        arc4random
+    func addToPattern()
+    {
+        pattern.append(Int(arc4random_uniform(4)))
     }
     func flashColor(number: Int)
     {
@@ -60,6 +58,7 @@ class ViewController: UIViewController
     
     @IBAction func onStartButtonPressed(_ sender: Any)
     {
+        addToPattern()
         displayPattern()
     }
     
