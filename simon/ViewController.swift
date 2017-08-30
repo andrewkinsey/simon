@@ -28,7 +28,9 @@ class ViewController: UIViewController
         pattern.append(3)
 
     }
-    
+    func addToPattern() {
+        arc4random
+    }
     func flashColor(number: Int)
     {
         UIView.transition(with: colorDisplays[number], duration: 0.5, options: .transitionCrossDissolve, animations: {self.colorDisplays[number].alpha = 1.0}) { (true) in
