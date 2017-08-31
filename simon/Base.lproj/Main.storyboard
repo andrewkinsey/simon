@@ -115,6 +115,7 @@
                     <connections>
                         <outlet property="colorsFrame" destination="r8S-n8-VEI" id="Net-9e-lxX"/>
                         <outlet property="messageLabel" destination="a4T-hS-5cx" id="wSf-Zg-SUU"/>
+                        <outlet property="startButton" destination="nvQ-Y4-8Kf" id="5Hn-H8-vty"/>
                         <outletCollection property="colorDisplays" destination="zfX-Kl-acq" collectionClass="NSMutableArray" id="E1L-Uw-Zva"/>
                         <outletCollection property="colorDisplays" destination="shW-dY-5lo" collectionClass="NSMutableArray" id="yjv-Kf-g0j"/>
                         <outletCollection property="colorDisplays" destination="NMV-G5-Nmr" collectionClass="NSMutableArray" id="D2V-pH-JIY"/>

@@ -12,11 +12,13 @@ class ViewController: UIViewController
 {
 
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
     @IBOutlet var colorDisplays: [UIView]!
     @IBOutlet weak var colorsFrame: UIView!
     var timer = Timer()
     var index = 0
     var pattern = [Int]()
+    var playerTurn = false
     
     
     override func viewDidLoad()
@@ -34,6 +36,13 @@ class ViewController: UIViewController
         UIView.transition(with: colorDisplays[number], duration: 0.5, options: .transitionCrossDissolve, animations: {self.colorDisplays[number].alpha = 1.0}) { (true) in
             UIView.transition(with: self.colorDisplays[number], duration: 0.5, options: .transitionCrossDissolve, animations: {self.colorDisplays[number].alpha = 0.5}, completion: nil)
         }
+    }
+    
+    func restartGame()
+    {
+        pattern.removeAll()
+        index = 0
+        playerTurn = false
     }
 
     func displayPattern()
@@ -60,6 +69,7 @@ class ViewController: UIViewController
     {
         addToPattern()
         displayPattern()
+        startButton.alpha = 0.0
     }
     
     @IBAction func onColorTapped(_ sender: UITapGestureRecognizer)
@@ -69,6 +79,15 @@ class ViewController: UIViewController
             if colorDisplays[number].frame.contains(sender.location(in: colorsFrame))
             {
                 flashColor(number: number)
+                    if number == pattern[index]
+                    {
+                        //???
+                    }
+                    else
+                    {
+                        restartGame()
+                    }
+                
             }
         }
     
