@@ -24,6 +24,7 @@ class ViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        messageLabel.text = ""
         
 
     }
@@ -40,6 +41,7 @@ class ViewController: UIViewController
     
     func restartGame()
     {
+        startButton.alpha = 1.0
         pattern.removeAll()
         index = 0
         playerTurn = false
@@ -61,6 +63,8 @@ class ViewController: UIViewController
         {
             timer.invalidate()
             index = 0
+            playerTurn = true
+            messageLabel.text = "Player Turn"
         }
     }
     
@@ -70,25 +74,42 @@ class ViewController: UIViewController
         addToPattern()
         displayPattern()
         startButton.alpha = 0.0
+        messageLabel.text = ""
     }
     
     @IBAction func onColorTapped(_ sender: UITapGestureRecognizer)
     {
+        if playerTurn == true
+        {
         for number in 0..<colorDisplays.count
         {
             if colorDisplays[number].frame.contains(sender.location(in: colorsFrame))
             {
-                flashColor(number: number)
-                    if number == pattern[index]
+               if pattern[index] == number
                     {
-                        //???
+                        flashColor(number: number)
+                        index += 1
+                        if index == pattern.count
+                        {
+                            index = 0
+                            playerTurn = false
+                            messageLabel.text = ""
+                            addToPattern()
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5)
+                            {
+                                self.displayPattern()
+                            }
+                        }
                     }
-                    else
+                else
                     {
+                        messageLabel.text = "You're Bad"
                         restartGame()
+                        
                     }
                 
             }
+        }
         }
     
     }
